@@ -8,41 +8,31 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
-            color: #2c3e50;
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            line-height: 1.7; 
+            color: #2c3e50; 
             background-color: #fafafa;
-            background-image: 
-                radial-gradient(circle at 100% 0%, rgba(52, 152, 219, 0.05) 0%, transparent 50%),
-                radial-gradient(circle at 0% 100%, rgba(46, 204, 113, 0.05) 0%, transparent 50%);
+            scroll-behavior: smooth;
         }
-
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 0 20px;
-            background-color: white;
+        .container { 
+            max-width: 900px; 
+            margin: 0 auto; 
+            padding: 0 20px; 
+            background-color: white; 
             box-shadow: 0 0 30px rgba(0,0,0,0.08);
             position: relative;
             overflow: hidden;
         }
-
-        .header {
-            text-align: center;
-            padding: 80px 20px;
-            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+        .header { 
+            text-align: center; 
+            padding: 70px 20px 30px 20px; 
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%); 
             color: white;
             position: relative;
             overflow: hidden;
         }
-
         .header::before {
             content: '';
             position: absolute;
@@ -50,63 +40,175 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml,<svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="1" fill="rgba(255,255,255,0.1)"/></svg>');
-            opacity: 0.1;
+            background: radial-gradient(circle at center, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: pulse 4s infinite;
         }
-
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.5); opacity: 0.2; }
+            100% { transform: scale(1); opacity: 0.5; }
+        }
         .header h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 3.5rem;
-            margin-bottom: 30px;
+            font-size: 2.6rem;
+            margin-bottom: 22px;
             color: white;
-            line-height: 1.2;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-            position: relative;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s forwards;
         }
-
-        .subheadline {
-            font-size: 1.8rem;
-            color: rgba(255,255,255,0.9);
-            max-width: 800px;
-            margin: 0 auto;
-            font-weight: 300;
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .byline-section { 
+            text-align: center; 
+            margin-bottom: 36px;
+            opacity: 0;
+            animation: fadeIn 1s forwards 0.5s;
+        }
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+        .byline-name { 
+            font-weight: 700; 
+            font-size: 1.1rem; 
+            color: #fff; 
             letter-spacing: 0.5px;
         }
-
-        .content-section {
-            padding: 40px 20px;
-            margin-bottom: 30px;
-            position: relative;
+        .byline-title { 
+            font-weight: 400; 
+            color: #e0e6ed; 
+            font-size: 1.02rem; 
+            font-style: italic;
         }
-
-        .highlight-box {
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            border-left: 4px solid #3498db;
-            padding: 30px;
-            margin: 30px 0;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        .byline-date { 
+            font-size: 0.98rem; 
+            color: #d0d8e0; 
+            margin-top: 2px;
         }
-
-        .case-study {
-            background: linear-gradient(135deg, #f0f7ff 0%, #e3f2fd 100%);
-            padding: 40px;
-            margin: 40px 0;
-            border-radius: 12px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .case-study::before {
-            content: '"';
-            position: absolute;
-            top: -20px;
-            left: 20px;
+        h2 {
             font-family: 'Playfair Display', serif;
-            font-size: 120px;
-            color: rgba(52, 152, 219, 0.1);
+            color: #22335a;
+            margin: 54px 0 36px 0;
+            font-size: 2.7rem;
+            font-weight: 900;
+            letter-spacing: 0.1px;
+            line-height: 1.13;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+            position: relative;
+            padding: 0 0 18px 0;
+            border-radius: 0;
+            background: none;
+            text-align: left;
         }
-
+        h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: #2176ae;
+            border-radius: 2px;
+            margin: 18px 0 0 0;
+            opacity: 0.95;
+        }
+        h2.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        h3 {
+            font-size: 1.55rem;
+            margin: 38px 0 18px 0;
+            color: #2c3e50;
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            letter-spacing: 0.2px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        .content-section { 
+            padding: 0 0 38px 0;
+        }
+        .highlight-box { 
+            background: #f8f9fa; 
+            border-left: 4px solid #3498db; 
+            padding: 22px 24px; 
+            margin: 34px 0; 
+            border-radius: 8px; 
+            box-shadow: 0 4px 10px rgba(44,62,80,0.07); 
+            font-size: 1.09rem; 
+            font-style: italic; 
+            color: #2c3e50;
+            transform: translateX(-20px);
+            opacity: 0;
+            transition: all 0.6s ease;
+        }
+        .highlight-box.visible {
+            transform: translateX(0);
+            opacity: 1;
+        }
+        .treatment-list {
+            list-style: none;
+            margin: 18px 0 18px 0;
+            padding-left: 0;
+        }
+        .treatment-list li {
+            padding-left: 0;
+            margin-bottom: 18px;
+        }
+        .treatment-list li:last-child {
+            margin-bottom: 0;
+        }
+        .testimonial { 
+            background: #e3f2fd; 
+            border-left: 4px solid #3498db; 
+            padding: 18px 20px; 
+            margin: 22px 0; 
+            border-radius: 8px; 
+            font-style: italic; 
+            color: #2266a5; 
+            font-size: 1.08rem;
+            transform: translateX(-20px);
+            opacity: 0;
+            transition: all 0.6s ease;
+        }
+        .testimonial.visible {
+            transform: translateX(0);
+            opacity: 1;
+        }
+        .cta-section {
+            background: linear-gradient(135deg, #f0f8ff 0%, #e6f2ff 100%);
+            padding: 40px 20px;
+            text-align: center;
+            margin: 54px 0 0 0;
+            border-radius: 8px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+        .cta-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .cta-section h2 {
+            font-family: 'Georgia', serif;
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: #333;
+            text-decoration: underline;
+            text-decoration-color: white;
+        }
+        .cta-section p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            color: #666;
+        }
         .cta-button {
             display: inline-block;
             background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
@@ -117,433 +219,791 @@
             font-weight: 600;
             margin: 30px 0;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.18);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 1.15rem;
+            border: none;
+            position: relative;
+            overflow: hidden;
+        }
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: 0.5s;
+        }
+        .cta-button:hover::before {
+            left: 100%;
+        }
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(52, 152, 219, 0.22);
+        }
+        p {
+            margin-bottom: 32px;
+            font-size: 1.08rem;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+        p.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #3498db, #2980b9);
+            width: 0%;
+            transition: width 0.3s ease;
+            z-index: 1000;
+        }
+
+        /* Enhanced Mobile Optimizations */
+        @media (max-width: 700px) {
+            .header { 
+                padding: 40px 15px 20px 15px; 
+            }
+            .header h1 {
+                font-size: 1.8rem;
+                line-height: 1.3;
+                padding: 0 10px;
+            }
+            h2 {
+                font-size: 72px;
+                margin: 38px 0 28px 0;
+                padding: 0 0 14px 0;
+                line-height: 1.16;
+            }
+            h2::after {
+                width: 54px;
+                height: 5px;
+                margin-top: 14px;
+            }
+            h3 {
+                font-size: 1.15rem;
+                margin: 28px 0 12px 0;
+                padding-bottom: 7px;
+            }
+            .container { 
+                padding: 0 15px;
+            }
+            p {
+                font-size: 1rem;
+                line-height: 1.6;
+                margin-bottom: 22px;
+            }
+            .highlight-box {
+                padding: 15px 20px;
+                margin: 25px 0;
+            }
+            .testimonial {
+                padding: 15px 18px;
+                margin: 18px 0;
+            }
+            .cta-button {
+                padding: 15px 30px;
+                font-size: 1rem;
+                width: 90%;
+                max-width: 300px;
+            }
+            .treatment-list {
+                margin-left: 20px;
+            }
+            li {
+                margin-bottom: 14px;
+                font-size: 0.95rem;
+            }
+            .byline-section {
+                margin-bottom: 25px;
+            }
+            .byline-name {
+                font-size: 1rem;
+            }
+            .byline-title {
+                font-size: 0.9rem;
+            }
+            .byline-date {
+                font-size: 0.85rem;
+            }
+        }
+
+        /* Additional Mobile Enhancements */
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 1.6rem;
+            }
+            h2 {
+                font-size: 1.3rem;
+                padding: 12px;
+            }
+            .highlight-box {
+                padding: 12px 15px;
+            }
+            .testimonial {
+                padding: 12px 15px;
+            }
+            .cta-button {
+                padding: 12px 25px;
+                font-size: 0.95rem;
+            }
+        }
+
+        .syndrome-highlight {
+            background: linear-gradient(90deg, #fceabb 0%, #f8b500 100%);
+            color: #2c3e50;
+            font-weight: bold;
+            font-size: 1.2rem;
+            padding: 16px 20px;
+            border-radius: 10px;
+            margin: 30px 0 16px 0;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 2px 12px rgba(248,181,0,0.08);
+        }
+        .syndrome-icon {
+            font-size: 1.5rem;
+            margin-right: 12px;
+        }
+        .syndrome-title {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .scan-highlight {
+            background: linear-gradient(90deg, #e3f2fd 0%, #bbdefb 100%);
+            color: #1565c0;
+            font-weight: bold;
+            font-size: 1.1rem;
+            padding: 14px 18px;
+            border-radius: 10px;
+            margin: 18px 0 18px 0;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 2px 12px rgba(21,101,192,0.08);
+        }
+        .scan-icon {
+            font-size: 1.3rem;
+            margin-right: 10px;
+        }
+        .scan-title {
+            font-family: 'Playfair Display', serif;
+        }
+        @media (max-width: 700px) {
+            .syndrome-highlight, .scan-highlight {
+                font-size: 1rem;
+                padding: 12px 10px;
+            }
+            .syndrome-icon, .scan-icon {
+                font-size: 1.1rem;
+                margin-right: 8px;
+            }
+        }
+        .warning-box {
+            background: #fff5f5;
+            border-left: 5px solid #e53935;
+            color: #b71c1c;
+            padding: 14px 18px;
+            border-radius: 8px;
+            margin: 22px 0 16px 0;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 2px 8px rgba(229,57,53,0.07);
+            font-size: 1.08rem;
+        }
+        .warning-icon {
+            font-size: 1.3rem;
+            margin-right: 10px;
+        }
+        @media (max-width: 700px) {
+            .warning-box {
+                font-size: 0.98rem;
+                padding: 10px 8px;
+            }
+            .warning-icon {
+                font-size: 1.1rem;
+                margin-right: 7px;
+            }
+        }
+        .fancy-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        .fancy-list li {
+            position: relative;
+            padding-left: 1.5em;
+            margin-bottom: 18px;
+            font-size: 1.13rem;
+        }
+        .fancy-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.2em;
+            width: 4px;
+            height: 1.2em;
+            background: #2196f3;
+            border-radius: 2px;
+            display: inline-block;
+        }
+        .cta-banner {
+            background: linear-gradient(135deg, #204060 0%, #3498db 100%);
+            border-radius: 18px;
+            box-shadow: 0 6px 32px rgba(33,150,243,0.10);
+            padding: 56px 18px 48px 18px;
+            margin: 60px auto 0 auto;
+            max-width: 900px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .cta-banner .cta-title {
+            color: #fff;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.7rem;
+            font-weight: 900;
+            text-align: center;
+            margin-bottom: 18px;
+            position: relative;
+        }
+        .cta-banner .cta-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: #fff;
+            border-radius: 2px;
+            margin: 18px auto 0 auto;
+            opacity: 0.85;
+        }
+        .cta-banner .cta-supporting {
+            color: #e3f2fd;
+            text-align: center;
+            font-size: 1.18rem;
+            line-height: 1.7;
+            margin-bottom: 38px;
+            margin-top: 0;
+        }
+        .cta-banner .cta-section {
+            text-align: center;
+            margin: 0;
+        }
+        .cta-banner .cta-button {
+            background: linear-gradient(135deg, #42a5f5 0%, #1976d2 100%);
+            color: #fff;
+            font-size: 1.25rem;
+            padding: 20px 48px;
+            border-radius: 32px;
+            font-weight: 700;
+            box-shadow: 0 4px 18px rgba(52, 152, 219, 0.18);
+            border: none;
+            margin-top: 18px;
+            transition: all 0.2s;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
-
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+        .cta-banner .cta-button:hover {
+            background: linear-gradient(135deg, #1976d2 0%, #42a5f5 100%);
+            color: #fff;
+            transform: translateY(-2px) scale(1.03);
+            box-shadow: 0 8px 28px rgba(52, 152, 219, 0.22);
         }
-
-        .value-section {
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            padding: 40px;
-            margin: 40px 0;
-            border-radius: 12px;
-            position: relative;
+        @media (max-width: 700px) {
+            .cta-banner {
+                padding: 28px 4px 24px 4px;
+                border-radius: 12px;
+                max-width: 99vw;
+            }
+            .cta-banner .cta-title {
+                font-size: 1.5rem;
+            }
+            .cta-banner .cta-title::after {
+                width: 36px;
+                height: 3px;
+                margin-top: 10px;
+            }
+            .cta-banner .cta-supporting {
+                font-size: 1.01rem;
+                margin-bottom: 24px;
+            }
+            .cta-banner .cta-button {
+                font-size: 1.05rem;
+                padding: 14px 18px;
+                border-radius: 22px;
+            }
         }
-
-        h2 {
+        .finalword-cta-bg {
+            background: #1976d2;
+            border-radius: 18px;
+            padding: 48px 24px 40px 24px;
+            margin: 40px 0 32px 0;
+            text-align: center;
+            color: #fff;
+            box-shadow: 0 4px 24px rgba(44,62,80,0.10);
+        }
+        .finalword-cta-bg h2 {
             font-family: 'Playfair Display', serif;
-            color: #2c3e50;
-            margin-bottom: 25px;
-            font-size: 2.2rem;
+            font-size: 2.7rem;
+            font-weight: 900;
+            color: #fff;
+            margin-bottom: 18px;
+            margin-top: 0;
             position: relative;
             display: inline-block;
+            background: none;
         }
-
-        h2::after {
+        .finalword-cta-bg h2::after {
             content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 0;
-            width: 60px;
-            height: 3px;
-            background: #3498db;
+            display: block;
+            width: 80px;
+            height: 6px;
+            background: #fff;
+            border-radius: 2px;
+            margin: 26px auto 0 auto;
+            opacity: 0.95;
         }
-
-        p {
-            margin-bottom: 25px;
-            font-size: 1.1rem;
-            color: #34495e;
-            line-height: 1.8;
+        @media (max-width: 700px) {
+            .finalword-cta-bg {
+                padding: 28px 4px 24px 4px;
+                border-radius: 12px;
+            }
+            .finalword-cta-bg h2 {
+                font-size: 1.5rem;
+            }
+            .finalword-cta-bg h2::after {
+                width: 36px;
+                height: 3px;
+                margin-top: 10px;
+            }
         }
-
-        .treatment-list {
-            list-style-type: none;
-            margin: 25px 0;
-        }
-
-        .treatment-list li {
-            margin-bottom: 15px;
-            padding-left: 30px;
-            position: relative;
-            font-size: 1.1rem;
-        }
-
-        .treatment-list li:before {
-            content: "→";
-            color: #3498db;
-            position: absolute;
-            left: 0;
-            font-weight: bold;
-        }
-
-        .progress-section {
-            background: white;
-            padding: 30px;
-            border-radius: 12px;
-            margin: 40px 0;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-        }
-
-        .progress-item {
-            margin-bottom: 25px;
-            position: relative;
-            padding-left: 30px;
-        }
-
-        .progress-item::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 20px;
-            height: 20px;
-            background: #3498db;
-            border-radius: 50%;
-        }
-
-        .progress-item h3 {
-            color: #2c3e50;
-            margin-bottom: 10px;
-            font-size: 1.3rem;
-        }
-
-        .final-cta {
+        .finalword-cta-container {
             text-align: center;
-            padding: 60px 20px;
-            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
-            color: white;
-            margin-top: 40px;
+            margin-top: 32px;
         }
-
-        .final-cta h2 {
-            color: white;
-        }
-
-        .final-cta h2::after {
-            background: white;
-        }
-
-        .final-cta p {
-            color: rgba(255,255,255,0.9);
-            max-width: 600px;
-            margin: 0 auto 30px;
-        }
-
-        .byline-section {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 30px;
-            gap: 18px;
-        }
-        .byline-img {
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid #fff;
-            box-shadow: 0 2px 8px rgba(44,62,80,0.10);
-        }
-        .byline-text {
-            display: flex;
-            flex-direction: column;
-            font-size: 1.05rem;
-            color: #f5f7fa;
-        }
-        .byline-name {
-            font-weight: 700;
-            font-size: 1.1rem;
+        .finalword-cta-btn {
+            display: inline-block;
+            background: #1976d2;
             color: #fff;
+            font-size: 1.15rem;
+            font-weight: 600;
+            padding: 18px 32px;
+            border-radius: 32px;
+            text-decoration: none;
+            box-shadow: 0 4px 18px rgba(52, 152, 219, 0.18);
+            transition: background 0.2s, transform 0.2s;
+            margin-top: 8px;
         }
-        .byline-title {
-            font-weight: 400;
-            color: #e0e6ed;
+        .finalword-cta-btn:hover {
+            background: #1251a3;
+            transform: translateY(-2px) scale(1.03);
         }
-        .byline-date {
-            font-size: 0.98rem;
-            color: #d0d8e0;
+        /* Animated Pulse Dot for Treatment List */
+        .pulse-dot {
+            display: inline-block;
+            width: 14px;
+            height: 14px;
+            margin-right: 10px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 40% 40%, #43ea6d 70%, #1db954 100%);
+            box-shadow: 0 0 8px 2px #43ea6daa;
+            animation: pulse-dot-anim 1.2s infinite;
+            vertical-align: middle;
         }
-        @media (max-width: 600px) {
-            .byline-section {
-                flex-direction: column;
-                gap: 8px;
-            }
-            .byline-img {
-                width: 60px;
-                height: 60px;
-            }
+        @keyframes pulse-dot-anim {
+            0% { box-shadow: 0 0 8px 2px #43ea6daa, 0 0 0 0 #43ea6d55; }
+            70% { box-shadow: 0 0 8px 2px #43ea6daa, 0 0 0 8px #43ea6d11; }
+            100% { box-shadow: 0 0 8px 2px #43ea6daa, 0 0 0 0 #43ea6d55; }
         }
-
-        @media (max-width: 768px) {
-            .header h1 {
-                font-size: 2.5rem;
-            }
-            
-            .subheadline {
-                font-size: 1.4rem;
-            }
-            
-            .container {
-                padding: 0 15px;
-            }
-        }
-
-        /* Add responsive styling for review images */
-        @media (max-width: 700px) {
-            .content-section > div[style*='display: flex'] {
-                flex-direction: column !important;
-                align-items: center !important;
-            }
-        }
-
-        /* Add responsive styling for review images */
-        .review-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 24px;
-            justify-items: center;
-            margin-bottom: 32px;
-        }
-        @media (max-width: 1100px) {
-            .review-grid {
-                gap: 16px;
-            }
-        }
-        @media (max-width: 900px) {
-            .review-grid {
-                gap: 12px;
-            }
+        .section-blue-bg {
+            background: #e3f2fd;
+            border-radius: 16px;
+            padding: 38px 24px 38px 24px;
+            margin: 48px 0 48px 0;
         }
         @media (max-width: 700px) {
-            .review-grid {
-                grid-template-columns: 1fr;
-                gap: 18px;
+            .section-blue-bg {
+                padding: 18px 6px 18px 6px;
+                border-radius: 10px;
+                margin: 24px 0 24px 0;
+            }
+        }
+        .cost-highlight {
+            background: #fff5f5;
+            border-radius: 12px;
+            padding: 28px 22px 18px 22px;
+            margin: 32px 0 32px 0;
+        }
+        @media (max-width: 700px) {
+            .cost-highlight {
+                padding: 14px 6px 10px 6px;
+                border-radius: 8px;
+                margin: 18px 0 18px 0;
+            }
+        }
+        .neckpro-highlight {
+            background: #e8f9f1;
+            border-radius: 12px;
+            padding: 28px 22px 18px 22px;
+            margin: 32px 0 32px 0;
+        }
+        @media (max-width: 700px) {
+            .neckpro-highlight {
+                padding: 14px 6px 10px 6px;
+                border-radius: 8px;
+                margin: 18px 0 18px 0;
+            }
+        }
+        .section-very-light-blue-bg {
+            background: #f4faff;
+            border-radius: 16px;
+            padding: 38px 24px 38px 24px;
+            margin: 48px 0 48px 0;
+        }
+        @media (max-width: 700px) {
+            .section-very-light-blue-bg {
+                padding: 18px 6px 18px 6px;
+                border-radius: 10px;
+                margin: 24px 0 24px 0;
             }
         }
     </style>
 </head>
 <body>
+    <div class="progress-bar"></div>
     <div class="container">
         <header class="header">
-            <h1>6 Years of Neck Pain. 40 Pills a Day. Nothing Helped — Until This.</h1>
+            <h1>They Said It Was Just Tension. But I Was Suffering in Silence.</h1>
             <div class="byline-section">
-                <img src="pt-profile.jpg" alt="Lucas Hartmann, PT" class="byline-img">
-                <div class="byline-text">
-                    <span class="byline-name">By Lucas Hartmann</span><br>
-                    <span class="byline-title">Physical Therapist & Clinical Researcher</span><br>
-                    <span class="byline-date">📅 Published: June 8, 2025</span>
-                </div>
+                <div class="byline-name">By Lucas Hartmann, PT</div>
+                <div class="byline-title">Pain Recovery Specialist & Clinical Investigator</div>
+                <div class="byline-date">📅 Published: June 12, 2025</div>
             </div>
         </header>
 
-        <section class="content-section">
-            <h2>The Cases We Don't Talk About</h2>
-            <p>I've been a physical therapist for over a decade. In that time, I've seen hundreds of neck pain cases — from postural strain to post-op rehab. Most patients get better. They stretch, sleep, and start to live again.</p>
-            <p>But then there are the forgotten ones.</p>
-            <p>The ones who've been chewed up by the system, passed from doctor to doctor. Told "your scan looks fine."</p>
-            <p>They're not fine. They're suffering. And no one's listening.</p>
-        </section>
+        <div class="content-section">
+            <h2>"You're Fine, It's Just the Stress."</h2>
+            <p style="margin-bottom: 28px;">That's what Angela kept hearing.</p>
+            <p style="margin-bottom: 28px;">from her obstetrician, her family doctor, even her husband.</p>
+            <p>But nothing felt fine.</p>
+            <p>Angela was 33, a stay-at-home mom with two toddlers under five.</p>
+            <p>Her days were a blur of pickups, snacks, tantrums, and laundry.</p>
+            <p>And her nights? Sleepless. Not because of the kids — but because of the pain.</p>
 
-        <section class="case-study">
-            <h2>Case Study: Craig's Story</h2>
-            <p>Craig was one of them.</p>
-            <p>44 years old. Forklift driver. Divorced. Two kids who only see the shell of the dad they remember.</p>
-            <p>Before the pain started, Craig was the kind of guy who'd show up early, stay late, and never complain. He loved taking his kids to the park, grilling on Sundays, and working with his hands. He wasn't the emotional type — but he took pride in being dependable.</p>
-            <p>Then everything changed.</p>
-            <p>He couldn't even reverse his forklift anymore without locking up. The pain stabbed from the base of his skull down to his shoulder — sharp, unpredictable, exhausting. Every shift was a mental battle. Every movement carried hesitation.</p>
-            <p>At home, it was worse. He couldn't sleep. He couldn't play with his kids. He'd sit on the couch with a heating pad, watching them run around without him. And when they asked him to join, he'd just say, "Maybe later."</p>
-            <p>His MRI? "Normal."<br>His doctors? Shrugged.</p>
-            <div style="text-align:center; margin-bottom: 30px;">
-                <img src="craig-mri.jpg" alt="Craig's MRI Scan" style="max-width:340px;width:100%;height:auto;border-radius:16px;box-shadow:0 4px 16px rgba(44,62,80,0.10);">
+            <div class="section-very-light-blue-bg">
+            <h2>It Started After Her Second Pregnancy.</h2>
+            <p>A deep stiffness at the base of her skull. A burning line down her shoulders. A tightness that wouldn't let go.</p>
+            <p>At first, she ignored it. She was used to being sore — what mom isn't?</p>
+            <p>But the ache didn't go away.<br>It got worse.</p>
+            <p>Soon, lifting her daughter into the car seat sent a flash of pain down her arm.</p>
+            <p>Turning her neck to reverse out of the driveway became a 3-point ordeal.</p>
+            <p>And carrying groceries or bending over the crib? Sometimes unbearable.</p>
+            <p>She started leaning on Advil. Then ibuprofen gels. Then naproxen.<br>Eventually, she was cycling 3–4 types of NSAIDs daily, just to get through the chaos of her morning routine.</p>
+            <img src="pills.jpg" alt="A variety of colorful pills and tablets on a neutral background, representing multiple medications." style="max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 2px 12px rgba(44,62,80,0.08); margin: 24px 0;">
+            <p>She told herself it was temporary. But it wasn't.</p>
+            <p>Her stomach felt constantly bloated.</p>
+            <p>Her mood was flat.</p>
+            <p>She began losing her temper faster — not because she was angry, but because she was exhausted and chemically dulled.</p>
+            <p>She started forgetting things.</p>
+            <p>Missing appointments.</p>
+            <p>Pulling away from her husband.</p>
+            <p>Snapping at the kids.</p>
+            <p>It wasn't just the pain.</p>
+            <p>It was what the pain — and the meds — were doing to her.</p>
             </div>
-            <div class="highlight-box">
-                <h3>He tried:</h3>
+
+            <h2>What Hurt More Than the Pain?</h2>
+            <div style="text-align:center; margin: 24px 0;">
+                <img src="mri.jpg" alt="MRI scan of the head and neck" style="max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 2px 12px rgba(44,62,80,0.08);">
+            </div>
+            <p style="margin-bottom: 28px;">Nobody believed her.<br></p>
+            <p style="margin-bottom: 28px;">Her MRI was normal.<br></p>
+            <p style="margin-bottom: 28px;">Her doctor called it "typical muscle tension."<br></p>
+            <p style="margin-bottom: 28px;">"Maybe you just need a break."<br></p>
+            <p>But breaks don't exist when you're a mom. And pain doesn't wait for permission.</p>
+            <p>Angela stopped complaining.<br>
+            She smiled through it. She kept moving.</p>
+            <p>Until one day, her son hugged her from behind — and she flinched.</p>
+            <p>That moment broke her.</p>
+            <p>Not from the pain.</p>
+            <p>But from the guilt of pulling away from her own child.</p>
+
+            <h2>The Real Reason Nothing Helped</h2>
+            <p>Angela tried everything:</p>
+            <ul class="fancy-list">
+                <li>Massage therapy</li>
+                <li>Ice and heat</li>
+                <li>Postnatal yoga</li>
+                <li>Physical therapy</li>
+                <li>Topical creams</li>
+                <li>Chiropractic</li>
+                <li>Even new pillows and fancy sleep positions</li>
+            </ul>
+            <p>But nothing worked for more than a day or two.</p>
+            <p><strong>Here's why:</strong></p>
+            <p>Because the problem wasn't on the surface. It was deeper.</p>
+            <p>What Angela had — what millions of women silently suffer from — is a condition doctors rarely talk about:</p>
+            <div class="syndrome-highlight">
+                <span class="syndrome-icon">💡</span>
+                <span class="syndrome-title">Myofascial Pain Syndrome (MPS)</span>
+            </div>
+            <div style="text-align:center; margin: 24px 0;">
+                <img src="trigger-point.jpg" alt="Illustration of a myofascial trigger point in muscle tissue" style="max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 2px 12px rgba(44,62,80,0.08);">
+            </div>
+            <div class="scan-highlight">
+                <span class="scan-icon">🩺</span>
+                <span class="scan-title">You Won't See It On a Scan — But You'll Feel It Every Day</span>
+            </div>
+            <p>MPS is caused by trigger points — deep, knotted muscle fibers that form when the body is overloaded and under-recovered.</p>
+            <div class="warning-box">
+                <span class="warning-icon">&#9888;</span>
+                These knots (called trigger points) do a few dangerous things:
+            </div>
+            <ul class="fancy-list">
+                <li>They choke blood supply, starving muscles of oxygen</li>
+                <li>They squeeze nerves, sending pain signals that spread into other areas</li>
+                <li>They lock muscles in a half-contracted state, making it nearly impossible to fully relax</li>
+            </ul>
+            <p>And radiate pain in patterns no scan can detect.<br>
+            Angela's body wasn't broken. It was trapped.</p>
+            <p>Trapped in a loop of overworked muscles, poor posture, stress tension, and endless micro-trauma — from pregnancy, carrying babies, hunching over sinks and car seats and tiny shoes.</p>
+            <p>The result?</p>
+            <p>A silent, crushing kind of pain. The kind that steals your patience. Your sleep. Your softness. Your ability to just be present.</p>
+
+            <h2>Why Nothing Ever Really Worked</h2>
+            <p>Angela wasn't lazy. She wasn't ignoring advice.</p>
+            <p>She tried everything.</p>
+            <p>Physical therapy, massage, dry needling, posture hacks, new pillows.</p>
+            <p>Some things helped for a day. But nothing ever lasted.</p>
+            <p><strong>Here's why:</strong></p>
+            <p>So even when you stretch or rest, those deep knots stay stuck.</p>
+            <p>Your brain keeps firing "something's wrong" signals.</p>
+            <p>Your neck stays tight. Your nerves stay irritated.</p>
+            <p>And your pain comes back — like it never left.</p>
+            <p>That's why Angela's massages didn't stick.</p>
+            <p>Why her meds wore off in hours.</p>
+            <p>Why the PT exercises made her sore but not better.</p>
+            <p>None of them addressed the real issue:</p>
+            <p><strong>You can't out-stretch or out-medicate your way out of a locked-up muscle.</strong></p>
+            <p><strong>You have to break the pain cycle from inside the muscle — and inside the nervous system.</strong></p>
+            <p>That's exactly what NeckPro was built to do.</p>
+
+            <div class="section-blue-bg">
+                <h2>What Changed Everything</h2>
+                <p>Angela's breakthrough came when she was introduced to a device designed specifically for chronic neck pain caused by MPS — not the usual posture stuff or pain relief patches.</p>
+                <p><strong>It's called NeckPro.</strong></p>
+                <img src="neckpro-device.jpg" alt="NeckPro device close-up" style="max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 2px 12px rgba(44,62,80,0.08); margin: 24px 0;">
+                <p>And it works by doing one thing no other treatment she tried could:</p>
+                <p>It disrupts the pain at its root.</p>
+                <h2>How It Works (Mom-Tested, Science-Backed)</h2>
+                <p>NeckPro uses safe, targeted electrical stimulation — the same technology trusted by physical therapists — to calm overactive nerves and unlock deep muscle knots from the inside out.</p>
+                <p>When placed over the neck's most common trigger points, it:</p>
                 <ul class="treatment-list">
-                    <li>Physical therapy</li>
-                    <li>Chiropractic</li>
-                    <li>Massage guns</li>
-                    <li>Dry needling</li>
-                    <li>Muscle relaxants</li>
-                    <li>Injections</li>
-                    <li>Even Botox</li>
+                    <li><span class="pulse-dot"></span><strong style="font-size: 1.15rem;">Sends rhythmic pulses deep into the muscle</strong></li>
+                    <li><span class="pulse-dot"></span><strong style="font-size: 1.15rem;">Reboots nerve signals that have been firing pain for months</strong></li>
+                    <li><span class="pulse-dot"></span><strong style="font-size: 1.15rem;">Restores blood flow to bring oxygen, remove waste, and heal tissue</strong></li>
+                    <li><span class="pulse-dot"></span><strong style="font-size: 1.15rem;">Helps the muscle let go — like finally exhaling after being stuck in a cringe</strong></li>
                 </ul>
-                <p>All of it. Nothing worked.</p>
+                <p>It doesn't just mask pain.</p>
+                <p>It helps retrain your body to stop creating it.</p>
+                <p>Angela started using it twice a day, 15 minutes at a time — while folding laundry, scrolling through bedtime routines, or catching her breath after a long day.</p>
+                <p>She didn't expect much. But here's what happened…</p>
             </div>
-            <p>By the time he found me, Craig was taking over 40 pills a day — ibuprofen, cyclobenzaprine, tramadol — just to make it through work. Not to thrive. Not to heal. Just to hold it together in front of his boss. Just to pretend, for a few hours, that everything was fine.</p>
-            <p>But it wasn't fine. Not even close.</p>
-            <p>Long-term use of medications like these can lead to serious consequences: gastrointestinal damage, liver strain, kidney fatigue, and in some cases, physical dependency. Craig was already noticing the warning signs. His digestion was off. His mood was flat. His energy was drained. He told me he was starting to feel less like himself and more like someone he didn't recognize — like a passenger in his own life.</p>
-            <p>He wasn't living. He was sedating.</p>
-            <p>Every pill added another layer of fog — not just over his body, but over his identity.</p>
-            <p>That's not healthcare. That's barely surviving. And eventually, for people like Craig, it becomes something darker: permanent damage, organ strain, dependency, hopelessness.</p>
-            <p>We couldn't let that happen.</p>
-        </section>
 
-        <section class="content-section">
-            <h2>The Real Culprit: Myofascial Pain Syndrome</h2>
-            <div style="text-align:center; margin-bottom: 30px;">
-                <img src="trigger-point.jpg" alt="Trigger Point Illustration" style="max-width:320px;width:100%;height:auto;border-radius:16px;box-shadow:0 4px 16px rgba(44,62,80,0.10);">
-            </div>
-            <p>I started looking where most professionals stop — beneath the scans.</p>
-            <p>What I found was a pattern I've now seen hundreds of times. It's called Myofascial Pain Syndrome (MPS) — and if you've been in pain for months or years with no clear answer, this might be what's wrecking your life.</p>
-            <p>It's not about bones. It's not a spine alignment thing.</p>
-            <p>It's about deep, locked-up muscle fibers called trigger points — tight bundles that choke off circulation, compress nerves, and radiate pain like a bad wire.</p>
-            <p>You can't see them on a scan. But you feel them every time you turn your head, try to sleep, or get through the day without snapping.</p>
-            <p>Doctors miss it. But it's very real.</p>
-        </section>
-
-        <section class="content-section">
-            <h2>But First — Where Do These Knots Even Come From?</h2>
-            <p>Most people have no idea why they're in pain — only that it started slowly and never left.</p>
-            <p>Here's the truth: these knots — called trigger points — form when your muscles are overworked, overstressed, or injured... and never fully heal.</p>
-            <p>They're often the result of:</p>
-            <ul class="treatment-list">
-                <li>Long hours at a desk with bad posture</li>
-                <li>Car accidents or whiplash</li>
-                <li>Repetitive physical work (construction, driving, factory jobs)</li>
-                <li>Mental stress that causes you to constantly tense up</li>
-            </ul>
-            <p>Over time, your muscle fibers bunch up like a kink in a garden hose. Blood stops flowing properly. Nerves get squeezed. And pain starts spreading — often to completely unrelated areas (like pain behind your eye coming from your neck).</p>
-            <p>This isn't surface-level tension. This is deep-tissue chaos your body can't fix on its own.</p>
-            <p>And because it doesn't show up on a scan, most professionals dismiss it.</p>
-            <p>But once these trigger points form — they don't go away with stretching or rest. You have to break the pattern and disrupt the pain signal directly.</p>
-        </section>
-
-        <section class="content-section">
-            <h2>A New Approach: Targeting the Root — Without Surgery or Pills</h2>
-            <div style="text-align:center; margin-bottom: 30px;">
-                <img src="no-surgery-no-pills.jpg" alt="No Surgery or Pills" style="max-width:380px;width:100%;height:auto;border-radius:16px;box-shadow:0 4px 16px rgba(44,62,80,0.10);">
-            </div>
-            <p>So we stopped trying to stretch the pain away, and instead started releasing these deep knots directly.</p>
-            <p>Not with needles. Not with meds. But with carefully tuned electrical pulses that target the exact pressure points — the ones causing all the chaos.</p>
-            <p>We built a prototype.</p>
-            <p>But this wasn't just about building a device. It was about giving people like Craig — and so many others — a way out. I'd seen too many good people brought to their knees by pain that nobody could explain. Fathers missing time with their kids. Workers forced into early retirement. Men and women losing their identity to something no one could name.</p>
-            <p>So we started building it with one mission: To create a tool that targets the real source of chronic neck pain — not just the symptoms.</p>
-            <p>It had to be simple. It had to be safe. And most importantly, it had to actually work.</p>
-            <p>We called it NeckPro.</p>
-            <div style="text-align:center; margin: 30px 0;">
-                <img src="neckpro-closeup.jpg" alt="NeckPro Close-up" style="max-width:340px;width:100%;height:auto;border-radius:16px;box-shadow:0 4px 16px rgba(44,62,80,0.10);">
-            </div>
-            <p><strong>So how does it work?</strong></p>
-            <p>When applied over key trigger points in the neck and upper back, NeckPro delivers controlled electrical pulses — not strong shocks, but gentle, rhythmic stimulation designed to do three critical things:</p>
-            <ul class="treatment-list">
-                <li><strong>Break the pain cycle</strong> — by calming the nerve signals being sent from the irritated muscle to your brain.</li>
-                <li><strong>Increase blood flow</strong> — which helps flush out waste buildup and brings in oxygen and nutrients to start real healing.</li>
-                <li><strong>Release the knot</strong> — by helping those tight, stubborn muscle fibers let go. Like hitting the reset button on a cramped, exhausted muscle.</li>
-            </ul>
-            <p>It's like having a deep-tissue therapist work directly on the pain — only without needles, appointments, or $120 sessions.</p>
-            <p>15 minutes. Twice a day. No drugs. No weird yoga poses. Just you, sitting in a chair — finally doing something that actually makes sense.</p>
-        </section>
-
-        <section class="progress-section">
-            <h2>Putting It to the Test — Craig's Turning Point</h2>
-            <div class="progress-item">
+            <h2>Angela's Transformation</h2>
+            <div class="highlight-box">
                 <h3>Week 1</h3>
-                <p>No miracles. Just a little less tension.</p>
+                <p>The pain didn't vanish. But something shifted.<br>
+                She wasn't waking up in a fog. The morning tension — that crushing band around her upper spine — was lighter.<br>
+                She didn't snap at the kids over spilled juice. She had a little more space in her body. And in her patience.<br>
+                It felt like… breathing room.</p>
             </div>
-            <div class="progress-item">
+
+            <div class="highlight-box">
                 <h3>Week 2</h3>
-                <p>The stabbing eased up. Craig could rotate his neck again.</p>
+                <p>The flares became less sharp. She could turn her head more freely.<br>
+                She wasn't bracing every time she reached for the back seat or leaned over the crib.<br>
+                She caught herself humming while doing dishes.<br>
+                A small thing — but it had been months since she felt light enough to hum.</p>
             </div>
-            <div class="progress-item">
+
+            <div class="highlight-box">
                 <h3>Week 3</h3>
-                <p>Pain dropped from a 7 to a 4. He stopped bringing pills to work.</p>
+                <p>The pain no longer ruled her schedule.<br>
+                She didn't cancel the park day. She didn't panic when the kids asked to be picked up and spun around.<br>
+                She flinched less. Smiled more.<br>
+                Even her husband noticed:<br>
+                "You seem… more like yourself again."<br>
+                And she was.</p>
             </div>
-            <div class="progress-item">
+
+            <div class="highlight-box">
                 <h3>Week 4</h3>
-                <p>The shift was undeniable. Craig walked into the clinic with better posture, clearer eyes, and something I hadn't seen in him for weeks — hope.<br>He looked at me and said, "If this keeps going the way it's going... I might actually get my life back."</p>
+                <p>Something clicked.<br>
+                She wasn't dragging herself through the day anymore — she was moving through it.<br>
+                Present. Capable. Calmer.<br>
+                The tension wasn't just easing — it was leaving.<br>
+                That was the moment Angela knew:<br>
+                "This isn't just relief. This is me coming back."</p>
             </div>
-            <p>That wasn't luck. That was what happens when you finally treat the actual cause.</p>
-        </section>
 
-        <section class="content-section">
-            <h2>From Prototype to Product</h2>
-            <p>What started as a last-ditch solution for one patient turned into something much bigger.</p>
-            <p>When Craig looked at me with hope in his eyes — after years of nothing working — I knew we couldn't stop there. His story wasn't rare. It was everywhere. Construction workers. Office professionals. Truck drivers. Even new moms.</p>
-            <p>All of them stuck. All of them dismissed. All of them waiting for something real.</p>
-            <p>That's when we made the decision:<br>We're not just building a tool — we're building a lifeline for people abandoned by the system.</p>
-            <p>So we refined the prototype, validated it with real users, and poured everything we had into creating a final version that anyone could use safely, consistently, and affordably — in their own home.</p>
-            <p>That's how NeckPro was born.<br>Not in a lab.<br>In the trenches — where the real pain lives.</p>
-            <p>Craig's story wasn't the only one.<br>We took everything we learned from him — and dozens more just like him — and turned that prototype into the final version of NeckPro.</p>
-            <p>It's for the ones who've been dismissed.<br>The ones who've Googled themselves into despair.<br>The ones who are tired of "try this" advice that never works.</p>
-            <p>This isn't a wellness gadget.<br>This is a weapon against the pain that's been stealing your life.</p>
-            <div style="text-align:center; margin-top: 30px;">
-                <img src="neckpro-product.jpg" alt="NeckPro Product" style="max-width:340px;width:100%;height:auto;border-radius:16px;box-shadow:0 4px 16px rgba(44,62,80,0.10);">
+            <h2>The Relief They Thought They'd Never Find</h2>
+            <div class="testimonial-gallery" style="display: flex; flex-wrap: wrap; gap: 24px; justify-content: center; align-items: flex-start; margin-bottom: 40px;">
+                <img src="testimonial1.jpg" alt="Testimonial from Jessica Klein about NeckPro" style="max-width: 260px; width: 100%; border-radius: 16px; box-shadow: 0 2px 12px rgba(44,62,80,0.10);">
+                <img src="testimonial2.jpg" alt="Testimonial from Erin Sanders about NeckPro" style="max-width: 260px; width: 100%; border-radius: 16px; box-shadow: 0 2px 12px rgba(44,62,80,0.10);">
+                <img src="testimonial3.jpg" alt="Testimonial from Rachel Martinez about NeckPro" style="max-width: 260px; width: 100%; border-radius: 16px; box-shadow: 0 2px 12px rgba(44,62,80,0.10);">
+                <img src="testimonial4.jpg" alt="Testimonial from Hannah Thompson about NeckPro" style="max-width: 260px; width: 100%; border-radius: 16px; box-shadow: 0 2px 12px rgba(44,62,80,0.10);">
             </div>
-        </section>
 
-        <section class="content-section">
-            <h2>From the People Who Lived It</h2>
-            <div class="review-grid">
-                <img src="review-mark-rossi.jpg" alt="Mark Rossi Facebook Review" style="max-width:320px;width:100%;border-radius:14px;box-shadow:0 4px 16px rgba(44,62,80,0.10);background:#fff;">
-                <img src="review-marcus-reed.jpg" alt="Marcus Reed Facebook Review" style="max-width:320px;width:100%;border-radius:14px;box-shadow:0 4px 16px rgba(44,62,80,0.10);background:#fff;">
-                <img src="review-mike-hausmann.jpg" alt="Mike Hausmann Facebook Review" style="max-width:320px;width:100%;border-radius:14px;box-shadow:0 4px 16px rgba(44,62,80,0.10);background:#fff;">
-                <img src="review-jamie-thompson.jpg" alt="Jamie Thompson Facebook Review" style="max-width:320px;width:100%;border-radius:14px;box-shadow:0 4px 16px rgba(44,62,80,0.10);background:#fff;">
-                <img src="review-brian-mcallister.jpg" alt="Brian McAllister Facebook Review" style="max-width:320px;width:100%;border-radius:14px;box-shadow:0 4px 16px rgba(44,62,80,0.10);background:#fff;">
-                <img src="review-travis-cole.jpg" alt="Travis Cole Facebook Review" style="max-width:320px;width:100%;border-radius:14px;box-shadow:0 4px 16px rgba(44,62,80,0.10);background:#fff;">
-            </div>
-        </section>
-
-        <section class="value-section">
-            <h2>Value in Perspective: What Chronic Pain Really Costs</h2>
-            <p>Let's be brutally honest.</p>
-            <p>Chronic neck pain doesn't just hurt. It steals your time. It drains your patience. It eats away at your income. And if you're not careful, it destroys your future.</p>
-            <p>Here's what most people pay to stay stuck:</p>
+            <h2>What Is This Pain Really Costing You?</h2>
+            <div class="cost-highlight">
             <ul class="treatment-list">
-                <li>$120/session at the chiropractor (temporary)</li>
-                <li>$90 massage (temporary)</li>
-                <li>$400+/month in pain meds (with side effects)</li>
-                <li>Missed work? Thousands lost</li>
+                <li>💸 Chiropractor sessions? <strong>$120+ per visit</strong> — and the tension creeps back by bedtime.</li>
+                <li>💸 Massage therapy? <strong>$90 a week</strong> — for temporary relief.</li>
+                <li>💸 Pain meds & creams? <strong>$200+ a month</strong> — with side effects.</li>
+                <li>💸 Specialists & consults? <strong>$1,000+ a year</strong> — with no guarantees.</li>
+                <li>💸 Missed work or daycare costs? It adds up fast.</li>
             </ul>
-            <p>That adds up. Fast.</p>
-            <p>The average person battling chronic pain easily spends $5,000–$10,000 per year — just to cope.</p>
-            <p><strong>Compare that to a one-time cost of $54.99 for NeckPro.</strong></p>
-            <p>No prescriptions. No appointments. No side effects. Just 15 minutes a day — at home — actually treating the source of your pain.</p>
-            <p>This isn't a patch. It's a power tool for pain.</p>
-            <p>If it doesn't help, you get your money back.<br>If it does, you get your life back.</p>
-            <p><strong>That's not a gamble. That's a no-brainer.</strong></p>
-        </section>
-
-        <section class="content-section">
-            <h2>Regret Is Expensive — Relief Isn't</h2>
-            <div style="text-align:center; margin-bottom: 30px;">
-                <img src="regret-expensive.jpg" alt="Regret Is Expensive" style="max-width:340px;width:100%;height:auto;border-radius:16px;box-shadow:0 4px 16px rgba(44,62,80,0.10);">
+            <p><strong>Now multiply that by 6 months.</strong></p>
+            <p><strong>By a year.</strong></p>
             </div>
-            <p>Most people wait too long.</p>
-            <p>They wait until their mobility is gone. Until their relationships are strained. Until work becomes a daily coin toss between pushing through or calling in sick.</p>
-            <p>They try to convince themselves that the pain will just go away... while another month slips by.</p>
-            <p>But every month you wait — every week you delay — adds another layer of damage, frustration, and cost. More pills. More missed sleep. More missed life.</p>
+            <p>By every moment you've missed because your body just couldn't keep up.</p>
             <p>And here's the kicker:</p>
-            <p>You could already be four weeks into real relief by now.</p>
-            <p>Don't let this be another thing you meant to try. Don't look back three months from now, still stuck, still hurting — and realize you passed up the one solution that actually made sense.</p>
-            <p>You don't need to keep managing pain. You need to start reversing it.</p>
-        </section>
+            <p>Even after all that — you're still in pain.</p>
+            <div class="neckpro-highlight">
+            <p><strong style="font-size: 1.15rem;">Now let's compare that to NeckPro:</strong></p>
+            <ul class="treatment-list">
+                <li><span class="pulse-dot"></span><strong style="font-size: 1.15rem;">A one-time cost of $54.99</strong></li>
+                <li><span class="pulse-dot"></span><strong style="font-size: 1.15rem;">Built by real pain experts</strong></li>
+                <li><span class="pulse-dot"></span><strong style="font-size: 1.15rem;">Based on science, not guesses</strong></li>
+                <li style="margin-bottom: 18px;"><span class="pulse-dot"></span><strong style="font-size: 1.15rem;">Just 15 minutes a day from your couch</strong></li>
+            </ul>
+            <p>No prescriptions.</p>
+            <p>No appointments.</p>
+            <p>No side effects.</p>
+            <p>No pressure.</p>
+            <p>And most importantly:</p>
+            <p>No more waiting for someone else to fix you. This isn't just a tool — it's the first real step toward getting your life back.</p>
+            <p>For less than the cost of one massage...</p>
+            <p>You get back control.</p>
+            <p>You get back your energy.</p>
+            <p>You get you back.</p>
+            </div>
+            <h2>How Much More Are You Willing to Lose?</h2>
+            <p>You don't mean to snap at your kids — but you do.</p>
+            <p>You don't want to cancel plans again — but you will.</p>
+            <p>You don't want to keep surviving the day instead of living it — but it's happening.</p>
+            <p>And the worst part?</p>
+            <p>Nothing changes until you do something about it.</p>
+            <p>This condition won't "work itself out."</p>
+            <p>The pills won't suddenly start healing.</p>
+            <p>And the time you're losing — with your family, your body, your self — you don't get it back.</p>
+            <p>Let this be the day you draw a line.</p>
+            <p>Not just for your pain — but for the version of you that's been waiting to come back.</p>
+            <p>Because here's the truth:</p>
+            <p>You can keep living with this pain...</p>
+            <p>Or you can start reversing it today.</p>
+            <p>The next 40 days can either look exactly like the last 40…</p>
+            <p>Or they can be the beginning of the breakthrough you've been begging for.</p>
+            <p>Don't wait until it's worse.</p>
+            <p>Don't wait until you feel broken.</p>
+            <p>Don't wait until one more "maybe tomorrow" becomes never.</p>
+            <p><strong>This is your shot. Take it.</strong></p>
 
-        <section class="content-section">
-            <h2>Risk-Free Relief — Guaranteed</h2>
-            <p>We get it. You've tried things before. You're skeptical — maybe even burnt out on false promises.</p>
-            <p>That's why we don't expect you to just take our word for it.</p>
-            <p>We stand 100% behind NeckPro.</p>
-            <p>If you're not satisfied for any reason — whether it's day 1 or day 40 — just email us. No hoops. No pressure. No hassle. We'll give you a full refund.</p>
-            <p>Our 40-Day No-Questions-Asked Money Back Guarantee means you can try NeckPro completely risk-free.</p>
-            <p>And if you need anything at all, our customer support team is here for you. Just shoot us a message at our support email — we respond to every request within 24 hours, guaranteed.</p>
-            <p>Your trust matters. Your time matters. And your health is worth backing with real accountability.</p>
-        </section>
+            <h2>40 Days to Feel Better — Or You Pay Nothing</h2>
+            <p>Let's be honest.</p>
+            <p>You've probably seen guarantees before.</p>
+            <p>"Try it risk-free!" — only to hit hidden terms, tricky return rules, or ghosted support emails.</p>
+            <p>We hate that stuff, too.</p>
+            <p>That's why we made our 40-Day Money-Back Guarantee different — actually real. Actually fair.</p>
+            <p>Here's exactly how it works:</p>
+            <ul class="fancy-list">
+                <li>You try NeckPro for up to 40 days.</li>
+                <li>You use it just 15 minutes a day — like we show you.</li>
+                <li>If you don't feel a noticeable difference — even a small shift — you email us.</li>
+                <li>No return shipping. No forms. No call centers.</li>
+                <li>We refund 100% of your money.</li>
+                <li>No fine print. No catch. No pressure.</li>
+            </ul>
+            <h3>Why We're Confident Enough to Do This</h3>
+            <p>Because NeckPro wasn't whipped up overnight.</p>
+            <p>It was built by physical therapists, after years of clinical insight and hands-on patient work.</p>
+            <p>It's helped real people — moms, workers, everyday humans — break out of pain cycles that stole years of their life.</p>
+            <p>So we don't need to "trap" you with gimmicks.</p>
+            <p>We let the results speak.</p>
+            <p>If it doesn't help you? You walk away with your money. Simple.</p>
+            <h3>Why We Offer 40 Days (Not 14 or 30)</h3>
+            <p>Because this isn't a quick fix. It's not a "feel better in 3 minutes" toy.</p>
+            <p>It's a tool designed to help your body reset a deep, chronic pattern — and that takes time.</p>
+            <p>We want you to give it a real shot.</p>
+            <p>No rush. No panic. Just a clean slate — and a fair window to try.</p>
+            <p>You've lived with this pain for months… maybe years.</p>
+            <p>You deserve at least 40 honest days to see if this is the thing that finally turns the corner.</p>
+            <p>So if you're still unsure, that's okay.</p>
+            <p>That's what the guarantee is for.</p>
+            <p>We take the risk — so you can take the step.</p>
 
-        <section class="final-cta">
-            <h2>Final Word: You Are Not Alone</h2>
-            <p>If you've been told "you're fine" while your whole life falls apart from pain...<br>
-            If you've started to believe maybe it's just in your head...<br>
-            If you're down to your last option...</p>
-            <p>Then NeckPro is for you.</p>
-            <p>It was built for the ones who've been failed.<br>
-            It was built for you.</p>
-            <a href="https://neckpro.us/products/discover-the-ultimate-solution-for-neck-pain-the-1-neuro-muscular-neck-massager" class="cta-button">Try NeckPro Now →</a>
-        </section>
+            <div class="finalword-cta-bg">
+                <h2>Final Word: You've Waited Long Enough</h2>
+                <p>If you've read this far, one thing is clear:</p>
+                <p>You're done living like this.</p>
+                <p>Done pretending you're fine when you're not.</p>
+                <p>Done pushing through pain just to get through another day.</p>
+                <p>You've done everything right.</p>
+                <p>You tried to rest.</p>
+                <p>You tried to stretch.</p>
+                <p>You stayed strong for everyone else.</p>
+                <p>But now it's your turn.</p>
+                <p>You don't need one more opinion.</p>
+                <p>You need relief — something real.</p>
+                <p>Something built for people like you.</p>
+                <p>That's why NeckPro exists.</p>
+                <p style="margin-bottom: 28px;">It's not a gimmick. It's not another Band-Aid.<br>
+                It's a tool — built by experts, tested by real people, and trusted by those who had nowhere else to turn.</p>
+                <p style="margin-bottom: 28px;">And right now, your next 40 days are in front of you.<br>
+                They can look exactly like the last 40 — same pain, same exhaustion, same cycle.<br>
+                Or they can be the beginning of the breakthrough you've been praying for.</p>
+                <p style="margin-bottom: 28px;">You don't need to wait for permission to feel better.<br>
+                You just need to start.</p>
+                <p>You've waited long enough.</p>
+                <div class="finalword-cta-container">
+                    <a href="https://neckpro.us/products/discover-the-ultimate-solution-for-neck-pain-the-1-neuro-muscular-neck-massager" class="finalword-cta-btn">👉 [Try NeckPro Now — 100% Risk-Free for 40 Days] 👈</a>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <script>
+        // Intersection Observer for scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        // Observe all elements that need animation
+        document.querySelectorAll('h2, p, .highlight-box, .testimonial, ul, .treatment-list, .cta-section').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Progress bar
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.querySelector('.progress-bar').style.width = scrolled + '%';
+        });
+    </script>
 </body>
+</html> 
 </html> 
