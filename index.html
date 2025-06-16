@@ -1,12 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Any other meta tags you have -->
-  <script type="text/javascript" src="//script.crazyegg.com/pages/scripts/0129/7832.js" async="async"></script>
-  <!-- The rest of your head content (title, styles, etc.) -->
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NeckPro - Breakthrough Solution for Chronic Neck Pain</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -436,26 +432,71 @@
                 margin-right: 7px;
             }
         }
-        .fancy-list {
+        .pulse-list {
             list-style: none;
             padding-left: 0;
         }
-        .fancy-list li {
+        .pulse-list li {
             position: relative;
-            padding-left: 1.5em;
-            margin-bottom: 18px;
+            padding-left: 2em;
+            margin-bottom: 1.1em;
             font-size: 1.13rem;
         }
-        .fancy-list li::before {
+        .pulse-list li::before {
             content: '';
             position: absolute;
-            left: 0;
-            top: 0.2em;
-            width: 4px;
-            height: 1.2em;
-            background: #2196f3;
-            border-radius: 2px;
-            display: inline-block;
+            left: 0.2em;
+            top: 0.7em;
+            width: 0.85em;
+            height: 0.85em;
+            border-radius: 50%;
+            background: radial-gradient(circle at 60% 40%, #3b82f6 80%, #2563eb 100%);
+            box-shadow: 0 0 0 0 rgba(59,130,246,0.7);
+            animation: pulse-blue 1.4s infinite;
+        }
+        @keyframes pulse-blue {
+            0% {
+                box-shadow: 0 0 0 0 rgba(59,130,246,0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 0.6em rgba(59,130,246,0.15);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(59,130,246,0.7);
+            }
+        }
+        .pulse-list-red {
+            list-style: none;
+            padding-left: 0;
+        }
+        .pulse-list-red li {
+            position: relative;
+            padding-left: 2em;
+            margin-bottom: 1.1em;
+            font-size: 1.13rem;
+        }
+        .pulse-list-red li::before {
+            content: '';
+            position: absolute;
+            left: 0.2em;
+            top: 0.7em;
+            width: 0.85em;
+            height: 0.85em;
+            border-radius: 50%;
+            background: radial-gradient(circle at 60% 40%, #f87171 80%, #b91c1c 100%);
+            box-shadow: 0 0 0 0 rgba(239,68,68,0.7);
+            animation: pulse-red 1.4s infinite;
+        }
+        @keyframes pulse-red {
+            0% {
+                box-shadow: 0 0 0 0 rgba(239,68,68,0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 0.6em rgba(239,68,68,0.15);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(239,68,68,0.7);
+            }
         }
         .cta-banner {
             background: linear-gradient(135deg, #204060 0%, #3498db 100%);
@@ -691,6 +732,12 @@
                 margin: 24px 0 24px 0;
             }
         }
+        .section-hope-bg {
+            background: #fff59d;
+            border-radius: 10px;
+            padding: 18px 18px 18px 18px;
+            margin: 28px 0 28px 0;
+        }
     </style>
 </head>
 <body>
@@ -723,7 +770,10 @@
             <p>Soon, lifting her daughter into the car seat sent a flash of pain down her arm.</p>
             <p>Turning her neck to reverse out of the driveway became a 3-point ordeal.</p>
             <p>And carrying groceries or bending over the crib? Sometimes unbearable.</p>
-            <p>She started leaning on Advil. Then ibuprofen gels. Then naproxen.<br>Eventually, she was cycling 3–4 types of NSAIDs daily, just to get through the chaos of her morning routine.</p>
+            <p>She started leaning on Advil.</p>
+            <p style="margin-bottom: 28px;">Then ibuprofen gels.</p>
+            <p style="margin-bottom: 28px;">Then naproxen.</p>
+            <p>Eventually, she was cycling 3–4 types of NSAIDs daily, just to get through the chaos of her morning routine.</p>
             <img src="pills.jpg" alt="A variety of colorful pills and tablets on a neutral background, representing multiple medications." style="max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 2px 12px rgba(44,62,80,0.08); margin: 24px 0;">
             <p>She told herself it was temporary. But it wasn't.</p>
             <p>Her stomach felt constantly bloated.</p>
@@ -755,7 +805,7 @@
 
             <h2>The Real Reason Nothing Helped</h2>
             <p>Angela tried everything:</p>
-            <ul class="fancy-list">
+            <ul class="pulse-list">
                 <li>Massage therapy</li>
                 <li>Ice and heat</li>
                 <li>Postnatal yoga</li>
@@ -784,7 +834,7 @@
                 <span class="warning-icon">&#9888;</span>
                 These knots (called trigger points) do a few dangerous things:
             </div>
-            <ul class="fancy-list">
+            <ul class="pulse-list-red">
                 <li>They choke blood supply, starving muscles of oxygen</li>
                 <li>They squeeze nerves, sending pain signals that spread into other areas</li>
                 <li>They lock muscles in a half-contracted state, making it nearly impossible to fully relax</li>
@@ -794,8 +844,6 @@
             <p>Trapped in a loop of overworked muscles, poor posture, stress tension, and endless micro-trauma — from pregnancy, carrying babies, hunching over sinks and car seats and tiny shoes.</p>
             <p>The result?</p>
             <p style="margin-bottom: 28px;"><strong>A silent, crushing kind of pain.</strong></p>
-            <p style="margin-bottom: 28px;">Your sleep.</p>
-            <p style="margin-bottom: 28px;">Your softness.</p>
             <p>The kind that steals your patience. Your sleep. Your softness. Your ability to just be present.</p>
 
             <h2>Why Nothing Ever Really Worked</h2>
@@ -889,14 +937,14 @@
             <h2>What Is This Pain Really Costing You?</h2>
             <div class="cost-highlight">
             <ul class="treatment-list">
-                <li>💸 Chiropractor sessions? <strong>$120+ per visit</strong> — and the tension creeps back by bedtime.</li>
-                <li>💸 Massage therapy? <strong>$90 a week</strong> — for temporary relief.</li>
-                <li>💸 Pain meds & creams? <strong>$200+ a month</strong> — with side effects.</li>
-                <li>💸 Specialists & consults? <strong>$1,000+ a year</strong> — with no guarantees.</li>
-                <li>💸 Missed work or daycare costs? It adds up fast.</li>
+                <li>💸 Chiropractor sessions?<br><strong>$90–$120 each</strong> — and the tension creeps back by bedtime. One session a week? That's up to $480/month.</li>
+                <li>💸 Massage therapy?<br><strong>$70–$90 per visit</strong>, often weekly — just for temporary relief that fades before your next appointment.</li>
+                <li>💸 Pain meds, gels, and creams?<br><strong>$150–$200/month on pills that wreck your stomach</strong>, blur your focus, and never solve the root issue.</li>
+                <li>💸 Specialist visits?<br><strong>$800–$1,200 a year</strong> — usually to be told your scan "looks fine."</li>
+                <li>💸 <strong>Missed work. Missed moments. Unexpected help.</strong><br><br>The hidden cost of chronic pain isn't just financial — it steals presence, peace, and freedom.</li>
             </ul>
-            <p><strong>Now multiply that by 6 months.</strong></p>
-            <p><strong>By a year.</strong></p>
+            <p>Now stretch that out across 12 months.</p>
+            <p style="font-size: 1.25rem; font-weight: bold; margin: 1.5em 0 1.5em 0; text-align:left;">You're looking at $3,000–$5,000 per year, just to cope.</p>
             </div>
             <p>By every moment you've missed because your body just couldn't keep up.</p>
             <p>And here's the kicker:</p>
@@ -950,7 +998,7 @@
             <p>We hate that stuff, too.</p>
             <p>That's why we made our 40-Day Money-Back Guarantee different — actually real. Actually fair.</p>
             <p>Here's exactly how it works:</p>
-            <ul class="fancy-list">
+            <ul class="pulse-list">
                 <li>You try NeckPro for up to 40 days.</li>
                 <li>You use it just 15 minutes a day — like we show you.</li>
                 <li>If you don't feel a noticeable difference — even a small shift — you email us.</li>
@@ -965,16 +1013,10 @@
             <p>So we don't need to "trap" you with gimmicks.</p>
             <p>We let the results speak.</p>
             <p>If it doesn't help you? You walk away with your money. Simple.</p>
-            <h3>Why We Offer 40 Days (Not 14 or 30)</h3>
-            <p>Because this isn't a quick fix. It's not a "feel better in 3 minutes" toy.</p>
-            <p>It's a tool designed to help your body reset a deep, chronic pattern — and that takes time.</p>
-            <p>We want you to give it a real shot.</p>
-            <p>No rush. No panic. Just a clean slate — and a fair window to try.</p>
-            <p>You've lived with this pain for months… maybe years.</p>
-            <p>You deserve at least 40 honest days to see if this is the thing that finally turns the corner.</p>
-            <p>So if you're still unsure, that's okay.</p>
-            <p>That's what the guarantee is for.</p>
-            <p>We take the risk — so you can take the step.</p>
+            <div class="section-hope-bg">
+            <h2 style="font-size: 1.5rem; font-weight: bold; margin-bottom: 1.5em; text-align:left;">⚠️ Don't Wait Until the Damage Is Permanent</h2>
+            <p style="margin-bottom: 1.5em; text-align:left;">Every week you delay — every morning you push through — you're reinforcing the pain pattern that's already robbing you of your energy, your clarity, and your life.<br><br>Trigger points don't just fade with time.<br><br>They dig in.<br><br>They adapt.<br><br>And eventually, they become chronic — harder to undo, deeper in the tissue, more resistant to even professional care.<br><br>And the longer you wait, the more you pay:<br><br>More pills to get through the day<br><br>More apologies for snapping at people you love<br><br>More guilt over missing moments you should've been there for<br><br>More damage to your nerves, sleep, focus, and identity<br><br>This doesn't fix itself. And no one's coming to do it for you.<br><br>But today, right now — you're still early enough to reverse it.<br>You still have the chance to interrupt the cycle.</p>
+            </div>
 
             <div class="finalword-cta-bg">
                 <h2>Final Word: You've Waited Long Enough</h2>
